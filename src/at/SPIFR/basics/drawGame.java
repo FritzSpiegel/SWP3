@@ -52,15 +52,21 @@ public class drawGame {
                     "Der Computer ist am Zug, und hat eine " + iWuerfel + " gewürfelt. Insgesamt hat er eine " + iComputerGesamt);
             System.out.println("\n");
 
+
+
+
+        }
+
+        if (iSpielerGesamt > iComputerGesamt) {
             System.out.println("Jeder hat nun 6 mal gewürfelt.");
 
-            if (iSpielerGesamt > iComputerGesamt) {
-                System.out.println("Sie haben gewonnen!!!!");
-            } else if ((iComputerGesamt > iSpielerGesamt)) {
-                System.out.println("Sie haben leider verloren :(");
-            } else {
-                System.out.println("Es ist ein Unentschieden... viel Glück beim nächsten mal.");
-            }
+            System.out.println("Sie haben gewonnen!!!!");
+        } else if ((iComputerGesamt > iSpielerGesamt)) {
+            System.out.println("Jeder hat nun 6 mal gewürfelt.");
+
+            System.out.println("Sie haben leider verloren :(");
+        } else {
+            System.out.println("Es ist ein Unentschieden... viel Glück beim nächsten mal.");
         }
     }
 }
