@@ -9,10 +9,13 @@ public class drawGame {
 
         Random random = new Random();
 
-        int iWuerfel = 0;
-        int iSpielerGesamt = 0;
-        int iComputerGesamt = 0;
+        int iWuerfelSpieler = 0;
+        int iWuerfelComputer = 0;
         int iZaehler = 0;
+        int iSpielerPunkte = 0;
+        int iComputerPunkte = 0;
+        int iUnentschieden = 0;
+
 
         char cwuerfeln = 0;
 
@@ -33,41 +36,39 @@ public class drawGame {
             scanner.nextLine();
 
 
-            iWuerfel = random.nextInt(6);
+            iWuerfelSpieler = random.nextInt(6);
 
-            iWuerfel = iWuerfel + 1;
+            iWuerfelSpieler = iWuerfelSpieler + 1;
 
-            iSpielerGesamt = iSpielerGesamt + iWuerfel;
-
-            System.out.println("Sie haben eine " + iWuerfel + " " +
+            System.out.println("Sie haben eine " + iWuerfelSpieler + " " +
                     "gewürfelt.");
-            System.out.println("Insgesamt haben sie nun eine Augenzahl von: " + iSpielerGesamt);
 
-            iWuerfel = random.nextInt(6);
-            iWuerfel = iWuerfel + 1;
 
-            iComputerGesamt = iComputerGesamt + iWuerfel;
+            iWuerfelComputer = random.nextInt(6);
+            iWuerfelComputer = iWuerfelComputer + 1;
+
 
             System.out.println(" \n" +
-                    "Der Computer ist am Zug, und hat eine " + iWuerfel + " gewürfelt. Insgesamt hat er eine " + iComputerGesamt);
+                    "Der Computer ist am Zug, und hat eine " + iWuerfelComputer + " gewürfelt");
             System.out.println("\n");
 
 
+            if (iWuerfelComputer < iWuerfelSpieler) {
+                System.out.println("Sie haben gewonnen!!!!");
+                iSpielerPunkte = iSpielerPunkte + 1;
+            } else if ((iWuerfelComputer > iWuerfelSpieler)) {
 
+                System.out.println("Sie haben leider verloren :(");
+                iComputerPunkte = iComputerPunkte + 1;
 
+            } else {
+                System.out.println("Es ist ein Unentschieden");
+                iUnentschieden = iUnentschieden + 1;
+            }
         }
 
-        if (iSpielerGesamt > iComputerGesamt) {
-            System.out.println("Jeder hat nun 6 mal gewürfelt.");
 
-            System.out.println("Sie haben gewonnen!!!!");
-        } else if ((iComputerGesamt > iSpielerGesamt)) {
-            System.out.println("Jeder hat nun 6 mal gewürfelt.");
-
-            System.out.println("Sie haben leider verloren :(");
-        } else {
-            System.out.println("Es ist ein Unentschieden... viel Glück beim nächsten mal.");
-        }
+        System.out.println("Insgesamt haben sie nun " + iSpielerPunkte + " mal gewonnen, und der Computer " + iComputerPunkte + " mal gewonnen. Es gab " + iUnentschieden + " Unentschieden");
     }
 }
 
