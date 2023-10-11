@@ -9,15 +9,13 @@ public class drawGame {
 
         Random random = new Random();
 
-        int iWuerfelSpieler = 0;
-        int iWuerfelComputer = 0;
+        int iWuerfelSpieler;
+        int iWuerfelComputer;
         int iZaehler = 0;
         int iSpielerPunkte = 0;
         int iComputerPunkte = 0;
         int iUnentschieden = 0;
 
-
-        char cwuerfeln = 0;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -62,7 +60,7 @@ public class drawGame {
                 iComputerPunkte = iComputerPunkte + 1;
 
             } else {
-                System.out.println("Es ist ein Unentschieden");
+                System.out.println("Es ist ein Unentschieden \t");
                 iUnentschieden = iUnentschieden + 1;
             }
         }
