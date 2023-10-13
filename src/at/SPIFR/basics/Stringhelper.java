@@ -6,8 +6,6 @@ public class Stringhelper {
     boolean Palindrom = isPalindrom("otto");
 
 
-
-
     public static boolean isPalindrom (String test){
 
 
