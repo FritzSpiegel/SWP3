@@ -1,30 +1,51 @@
 package at.SPIFR.basics;
 
+import java.util.Scanner;
+
 public class Stringhelper {
-    String sSatz = "Otto";
+    public static void main(String[] args) {
 
-    boolean Palindrom = isPalindrom("otto");
+        String sSatz = "";
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Geben sie ein Wort ein, von dem sie wissen möchten ob es ein Palindrom ist: ");
+
+        sSatz = scanner.nextLine();
+
+        boolean Palindrom = isPalindrom(sSatz);
+
+        System.out.println(Palindrom);
 
 
+        System.out.println("Möchten sie noch ein weiteres Wort eingeben? \t Ja(j) \t Nein(n)");
+
+
+
+
+    }
     public static boolean isPalindrom (String test){
 
 
+        boolean Ergebnis = true;
+        int ihilfe = 0;
         char[] textarray = test.toCharArray();
 
-        int lange = textarray.length + 1;
 
-        for(int i = 0; i < textarray.length/2; i++) {
+        for (int i = 0; i < textarray.length / 2; i++) {
             int hilfe = textarray.length - 1 - i;
 
-            if(textarray[i] == textarray[hilfe]){
-                boolean Ergebnis = true;
+            if (textarray[i] == textarray[hilfe]) {
 
-            }else {
+            } else {
+                ihilfe = 1;
 
-                boolean Ergebnis = false;
             }
-        };
 
-        return false;
+        }
+
+        if(ihilfe == 1){
+            Ergebnis = false;
+        }
+        return Ergebnis;
     }
 }
