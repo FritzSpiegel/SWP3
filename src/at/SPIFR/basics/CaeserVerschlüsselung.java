@@ -44,12 +44,8 @@ public class CaeserVerschlüsselung {
 
             } else if (iVerschluesselt < 65){
 
-
-
             }else {
-
                 iVerschluesselt = aString[i] + verschiebung;
-
             }
 
             if(iVerschluesselt > 122){
