@@ -51,8 +51,6 @@ public class Stringhelper {
 
         char[] textarray = test.toCharArray();
 
-
-
         for (int i = 0; i < textarray.length; i++) {
             int hilfe = textarray.length - 1 - i;
 

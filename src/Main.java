@@ -15,3 +15,10 @@ public class Main {
         }
     }
 }
+
+//Arra nur mit Leerzeichen füllen
+       //for (int i = 0; i < cSpielfeld.length; i++) {
+        //for (int j = 0; j < cSpielfeld.length; j++) {
+        //cSpielfeld[i][j] = ' ';
+        //}
+        //}
