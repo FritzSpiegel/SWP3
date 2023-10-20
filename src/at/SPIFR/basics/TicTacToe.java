@@ -10,62 +10,75 @@ public class TicTacToe {
 
         // Spieler X hat die 1
         // Spieler 0 hat die 2
-        int iTest = 1;
         int iAuswahl = ' ';
         int iÜberprüfung = 0;
         int idurchgelaufen = 0;
         int igewonnen = 0;
+        int iunentschieden = 0;
         Scanner scanner = new Scanner(System.in);
 
         int[]  iumgewandelt = new int[2];
-
         char[][] cSpielfeld = new char[3][3];
-
         int[][] iavailable = new int [3][3];
 
 
-        //Die beiden Arrays nur mit 0/ " " befüllen
+        //Den array mit Leerzeichen befüllen
         for (int i = 0; i < cSpielfeld.length; i++) {
             for (int j = 0; j < cSpielfeld.length; j++) {
                 cSpielfeld[i][j] = ' ';
             }
         }
 
+        //Den array mit 0 befüllen
         for (int i = 0; i < iavailable.length; i++) {
             for (int j = 0; j < iavailable.length; j++) {
                 iavailable[i][j] = 0;
             }
         }
 
+
+
+
+        //Erklärung des Spieles
         System.out.println("Das ist ein Tic Tac Toe spiel, die spieler sind nacheinander dran, für das Auswählen eines Feldes, müssen sie die richtige Zahl dafür eingeben.");
+        //Anzeige welche ZAhl man eintippen muss um auf ein Feld zu setzen
         System.out.println("1|2|3\n"  +
                 "4|5|6\n" +
                 "7|8|9\n");
-
-
         //Zug des resten Spielers
-        anzeigeSpielfeld(cSpielfeld);
+
         do {
+
+            anzeigeSpielfeld(cSpielfeld);
 
             System.out.println("Der erste Spieler mit dem X ist dran, geben Sie ein wo sie setzen möchten");
 
+
             do {
+
+                //Erster Spieler kann eingabe machen, wohin er setzen möchte
 
                 iAuswahl = scanner.nextInt();
 
+
+                //Es wird überprüft ob das Feld noch Leer ist
                 iÜberprüfung = isavailable(iavailable, iAuswahl);
 
                 if (iÜberprüfung == 0) {
                     //Das Feld ist frei
-                    iumgewandelt = umwandeln(iAuswahl);
 
+                    //Die eingegben Zahl wird umgewandelt, auf die Array Koordinate
+                    iumgewandelt = umwandeln(iAuswahl);
+                    //Der Array wird befüllt mit dem X und er wird für den ersten Spieler reserviert
                     iavailable[iumgewandelt[0]][iumgewandelt[1]] = 1;
 
                     cSpielfeld[iumgewandelt[0]][iumgewandelt[1]] = 'X';
 
                     anzeigeSpielfeld(cSpielfeld);
-
+                    //Die Variable idurchgelaaufen wird erhöht um zu überprüfen ob der Durchgang erfolgreich war
                     idurchgelaufen = 1;
+
+                    iunentschieden += 1;
 
                 } else if (iÜberprüfung == 1) {
                     //Dieser Spieler hat bereits in diesem Feld ein X plaziert
@@ -82,50 +95,79 @@ public class TicTacToe {
                     System.out.println("Geben sie eine neue Zahl ein, an der sie ihr X platzieren wollen");
 
                 }
-
-
+                //Es geht solange weiter, bis ein Wert eingegeben wird, in dem noch Platz frei ist
             } while (idurchgelaufen != 1);
             idurchgelaufen = 0;
 
-            System.out.println("Nun ist der Spieler mit dem O dran, wähle einen Ort aus, wo du deinen Kreis platzieren möchtest: ");
+            //Es wird überprüft ob der Spieler schon gewonnen hat
+            igewonnen = gewonnen(iavailable);
 
 
-            do {
-                iAuswahl = scanner.nextInt();
+            //Fals der andere Apierl schon gewonne hat, wird das Programm abgebrochen
+            if(idurchgelaufen == 9 | igewonnen == 1){
+
+            //nichts passiert (da der andere Spieler schon gewonnen hat
+
+            }else {
+                System.out.println("Nun ist der Spieler mit dem O dran, wähle einen Ort aus, wo du deinen Kreis platzieren möchtest: ");
+                do {
+
+                    //Eingabe des zweiten Spielers
+                    iAuswahl = scanner.nextInt();
+
+                    //Überprüfen ob das Feld noch frei ist
+                    iÜberprüfung = isavailable(iavailable, iAuswahl);
 
 
-                iÜberprüfung = isavailable(iavailable, iAuswahl);
+                    if (iÜberprüfung == 0) {
+                        //Das Feld ist frei
+                        //Zahl wird umgewandelt in Koordinaten
+                        iumgewandelt = umwandeln(iAuswahl);
+                        //Felder werden belegt
+                        iavailable[iumgewandelt[0]][iumgewandelt[1]] = 2;
+
+                        cSpielfeld[iumgewandelt[0]][iumgewandelt[1]] = 'O';
 
 
-                if (iÜberprüfung == 0) {
-                    //Das Feld ist frei
-                    iumgewandelt = umwandeln(iAuswahl);
+                        //Die Variablen werden wieder erhöht
+                        idurchgelaufen = 1;
 
-                    iavailable[iumgewandelt[0]][iumgewandelt[1]] = 2;
+                        iunentschieden += 1;
 
-                    cSpielfeld[iumgewandelt[0]][iumgewandelt[1]] = 'O';
+                    } else if (iÜberprüfung == 1) {
+                        //Dieser Spieler hat bereits in diesem Feld ein X plaziert
 
-                    anzeigeSpielfeld(cSpielfeld);
+                        System.out.println("Der andere Spieler hat bereits ein X in diesem Feld platziert");
 
-                    idurchgelaufen = 1;
+                        System.out.println("Geben sie eine neue Zahl ein, an der sie ihr O platzieren wollen");
+                    } else if (iÜberprüfung == 2) {
+                        //Der andere Spieler hat dieses Feld bereits belegt
 
-                } else if (iÜberprüfung == 1) {
-                    //Dieser Spieler hat bereits in diesem Feld ein X plaziert
+                        System.out.println("Sie haben in diesem Feld bereits ein O platziert");
 
-                    System.out.println("Der andere Spieler hat bereits ein X in diesem Feld platziert");
+                        System.out.println("Geben sie eine neue Zahl ein, an der sie ihr O platzieren wollen");
+                    }
+                    //Es geht solange weiter, bis ein Wert eingegeben wird, in dem noch Platz frei ist
+                } while (idurchgelaufen != 1);
 
-                    System.out.println("Geben sie eine neue Zahl ein, an der sie ihr O platzieren wollen");
-                } else if (iÜberprüfung == 2) {
-                    //Der andere Spieler hat dieses Feld bereits belegt
+                idurchgelaufen = 0;
+                //Es wird überprüft ob der Spieler gewonne hat
+                igewonnen = gewonnen(iavailable);
+            }
 
-                    System.out.println("Sie haben in diesem Feld bereits ein O platziert");
+        }while(igewonnen == 0 && iunentschieden < 9);
 
-                    System.out.println("Geben sie eine neue Zahl ein, an der sie ihr O platzieren wollen");
-                }
+        //Es wird überprüft welcher der beiden Spieler gewonne hat
+        if(igewonnen == 1){
+            System.out.println("Der Spielr mit dem X hat gewonnen");
+        }else if (igewonnen == 0){
 
-            } while (idurchgelaufen != 1);
-        }while(igewonnen != 1);
+            System.out.println("Der Spieler mit der O hat gewonnen");
 
+        }else {
+
+            System.out.println("Es ist ein Unentschieden, Viel Glück beim nächsten mal :)");
+        }
 
     }
 
@@ -133,20 +175,23 @@ public class TicTacToe {
 
 
 
+
+    //Funktion zur anzeige des Spielfeldes
     public static void anzeigeSpielfeld (char[][] Spielfeld){
         for ( int i = 0; i < Spielfeld.length; i ++){
                 System.out.println("|" +  Spielfeld[i][0] + "|" +  Spielfeld[i][1] +  "|" +  Spielfeld[i][2] + "|");
         }
     }
 
+
+    //Funktion zur Überprüfung, ob das Feld noch Frei ist, je nach dem wird zurückgegeben ob es frei ist, oder welcher Spieler es schon belegt
     public static int isavailable (int[][] Spielfeld, int Zahl) {
         int iZahl = Zahl;
         int iErgebnis = 0;
         int[] iArray = new int[2];
 
+        //Zahl wird umgewandelt in die Koordinate
         iArray = umwandeln(iZahl);
-
-
 
 
         if (Spielfeld[iArray[0]][iArray[1]] == 0) {
@@ -161,6 +206,8 @@ public class TicTacToe {
     }
 
 
+
+    //Funktion zur Umwandlung der Zahl in eine Koordinate für den array
     public static int[] umwandeln (int Zahl){
 
         int iZeile = 0;
@@ -212,6 +259,8 @@ public class TicTacToe {
         return  iumgewandelt;
     }
 
+
+    //Überprüfng, ob einer der beiden Spieler gewonnen hat, indem jede mögliche Gewinn Kombination überprüft wird.
     public static int gewonnen (int[][] iAvailable){
 
         int iGewonnen = 0;
@@ -240,10 +289,39 @@ public class TicTacToe {
 
         }else if (iAvailable[0][2] == 1 && iAvailable[1][2] == 1 && iAvailable[2][2] == 1) {
             iGewonnen = 1;
-
-
         }
 
+        if(iAvailable[0][0] == 2 && iAvailable[1][1] == 2 && iAvailable[2][2] == 2){
+            iGewonnen = 2;
 
+        } else if (iAvailable[0][2] == 2 && iAvailable[1][1] == 2 && iAvailable[2][0] == 2) {
+            iGewonnen = 2;
+
+        } else if (iAvailable[0][0] == 2 && iAvailable[0][1] == 2 && iAvailable[0][2] == 2) {
+            iGewonnen = 2;
+
+        }else if (iAvailable[1][0] == 2 && iAvailable[1][1] == 2 && iAvailable[1][2] == 2) {
+            iGewonnen = 2;
+
+        }else if (iAvailable[2][0] == 2 && iAvailable[2][1] == 2 && iAvailable[2][2] == 2) {
+            iGewonnen = 2;
+
+        }else if (iAvailable[0][0] == 2 && iAvailable[1][0] == 2 && iAvailable[2][0] == 2) {
+            iGewonnen = 2;
+
+        }else if (iAvailable[0][1] == 2 && iAvailable[1][1] == 2 && iAvailable[2][1] == 2) {
+            iGewonnen = 2;
+
+        }else if (iAvailable[0][2] == 2 && iAvailable[1][2] == 2 && iAvailable[2][2] == 2) {
+            iGewonnen = 2;
+        }
+
+        return  iGewonnen;
     };
+
+
+
+
+
+
 }
