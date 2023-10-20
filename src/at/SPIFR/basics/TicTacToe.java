@@ -160,7 +160,7 @@ public class TicTacToe {
         //Es wird überprüft welcher der beiden Spieler gewonne hat
         if(igewonnen == 1){
             System.out.println("Der Spielr mit dem X hat gewonnen");
-        }else if (igewonnen == 0){
+        }else if (igewonnen == 2){
 
             System.out.println("Der Spieler mit der O hat gewonnen");
 
@@ -178,8 +178,8 @@ public class TicTacToe {
 
     //Funktion zur anzeige des Spielfeldes
     public static void anzeigeSpielfeld (char[][] Spielfeld){
-        for ( int i = 0; i < Spielfeld.length; i ++){
-                System.out.println("|" +  Spielfeld[i][0] + "|" +  Spielfeld[i][1] +  "|" +  Spielfeld[i][2] + "|");
+        for (char[] chars : Spielfeld) {
+            System.out.println("|" + chars[0] + "|" + chars[1] + "|" + chars[2] + "|");
         }
     }
 
@@ -215,44 +215,42 @@ public class TicTacToe {
         int[] iumgewandelt = new int[2];
 
         switch (Zahl) {
-            case 1:
+            case 1 -> {
                 iZeile = 0;
                 iSpalte = 0;
-                break;
-            case 2:
+            }
+            case 2 -> {
                 iZeile = 0;
                 iSpalte = 1;
-                break;
-            case 3:
+            }
+            case 3 -> {
                 iZeile = 0;
                 iSpalte = 2;
-
-                break;
-            case 4:
+            }
+            case 4 -> {
                 iZeile = 1;
                 iSpalte = 0;
-                break;
-            case 5:
+            }
+            case 5 -> {
                 iZeile = 1;
                 iSpalte = 1;
-                break;
-            case 6:
+            }
+            case 6 -> {
                 iZeile = 1;
                 iSpalte = 2;
-
-                break;
-            case 7:
+            }
+            case 7 -> {
                 iZeile = 2;
                 iSpalte = 0;
-                break;
-            case 8:
+            }
+            case 8 -> {
                 iZeile = 2;
                 iSpalte = 1;
-                break;
-            case 9:
+            }
+            case 9 -> {
                 iZeile = 2;
                 iSpalte = 2;
-                break;
+            }
         }
         iumgewandelt[0] = iZeile;
         iumgewandelt[1] = iSpalte;
