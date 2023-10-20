@@ -241,6 +241,7 @@ public class TicTacToe {
         }else if (iAvailable[0][2] == 1 && iAvailable[1][2] == 1 && iAvailable[2][2] == 1) {
             iGewonnen = 1;
 
+
         }
 
 
