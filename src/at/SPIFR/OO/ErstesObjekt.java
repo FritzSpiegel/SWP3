@@ -21,12 +21,10 @@ public class ErstesObjekt {
 
         Car c3 = new Car(17,"Opel","1234O");
 */
-        Car c1 = new Car();
-        c1.setBrand("Audi");
-        c1.setFuelConsumption(7);
-        c1.setSerialnumber("1234");
+        Car c1 = new Car(7,"","");
         c1.setFuelAmount(70);
         c1.setTank(17);
+
 
         System.out.println(c1.getFuelAmount());
         c1.drive();
