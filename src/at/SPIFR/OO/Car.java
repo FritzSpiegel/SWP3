@@ -13,13 +13,13 @@ public class Car {
     private String color;
 
 
-
+/*
     public Car(int fuelConsumption, String brand , String serialnumber){
         this.fuelConsumption = fuelConsumption;
         this.brand = brand;
         this.serialnumber = serialnumber;
     }
-
+*/
 
     //Methode
     public void drive(){
