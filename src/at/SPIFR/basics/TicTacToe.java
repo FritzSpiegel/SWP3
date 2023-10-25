@@ -102,12 +102,10 @@ public class TicTacToe {
             //Es wird überprüft ob der Spieler schon gewonnen hat
             igewonnen = gewonnen(iavailable);
 
-
             //Fals der andere Apierl schon gewonne hat, wird das Programm abgebrochen
             if(idurchgelaufen == 9 | igewonnen == 1){
 
             //nichts passiert (da der andere Spieler schon gewonnen hat
-
             }else {
                 System.out.println("Nun ist der Spieler mit dem O dran, wähle einen Ort aus, wo du deinen Kreis platzieren möchtest: ");
                 do {
@@ -118,7 +116,6 @@ public class TicTacToe {
                     //Überprüfen ob das Feld noch frei ist
                     iÜberprüfung = isavailable(iavailable, iAuswahl);
 
-
                     if (iÜberprüfung == 0) {
                         //Das Feld ist frei
                         //Zahl wird umgewandelt in Koordinaten
@@ -127,7 +124,6 @@ public class TicTacToe {
                         iavailable[iumgewandelt[0]][iumgewandelt[1]] = 2;
 
                         cSpielfeld[iumgewandelt[0]][iumgewandelt[1]] = 'O';
-
 
                         //Die Variablen werden wieder erhöht
                         idurchgelaufen = 1;
@@ -172,10 +168,6 @@ public class TicTacToe {
     }
 
 
-
-
-
-
     //Funktion zur anzeige des Spielfeldes
     public static void anzeigeSpielfeld (char[][] Spielfeld){
         for (char[] chars : Spielfeld) {
@@ -204,7 +196,6 @@ public class TicTacToe {
         }
         return iErgebnis;
     }
-
 
 
     //Funktion zur Umwandlung der Zahl in eine Koordinate für den array
@@ -316,7 +307,4 @@ public class TicTacToe {
 
         return  iGewonnen;
     };
-
-
-
 }
