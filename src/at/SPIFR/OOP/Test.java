@@ -28,7 +28,7 @@ public class Test {
 
         System.out.println(auto.getKofferraumfahrrad().getsFarbe());
 
-        System.out.println(auto.getKofferraumGetränkekiste());
+        System.out.println();
 
 
 
