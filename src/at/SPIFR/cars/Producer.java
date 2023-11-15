@@ -16,12 +16,11 @@ public class Producer {
 
     public void addCar(Car car) {
         this.carList.add(car);
+
     }
 
 
-
-
-    public Producer(String strName, String strHerkunftsland, float fRabatt, List<Car> carList) {
+    public Producer(String strName, String strHerkunftsland, float fRabatt) {
         this.strName = strName;
         this.strHerkunftsland = strHerkunftsland;
         this.fRabatt = fRabatt;

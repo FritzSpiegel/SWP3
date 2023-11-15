@@ -1,7 +1,5 @@
 package at.SPIFR.cars;
 
-import at.SPIFR.OO.Engine;
-import at.SPIFR.OOP.Fahrrad;
 
 public class Car {
 
@@ -10,16 +8,52 @@ public class Car {
     private int iMaximalgeschwindigkeit;
     private float fBasispreis;
     private float fBasisverbrauch;
+    private float fKilometeranzahl;
     private Engine engine;
+    private Producer producer;
 
 
-    public Car(String strFarbe, int iMaximalgeschwindigkeit, float fBasispreis, float fBasisverbrauch) {
+
+    public Car(String strFarbe, int iMaximalgeschwindigkeit, float fBasispreis, float fBasisverbrauch, Engine engine, Producer producer) {
         this.strFarbe = strFarbe;
         this.iMaximalgeschwindigkeit = iMaximalgeschwindigkeit;
         this.fBasispreis = fBasispreis;
         this.fBasisverbrauch = fBasisverbrauch;
+        this.engine = engine;
+        this.producer = producer;
     }
 
+    public float calculatefPreis(){
+        float fresult = 0;
+        float a = getProducer().getfRabatt();
+        float b = getfBasispreis();
+        fresult = b - (b / a);
+        return fresult;
+    };
+
+    public float drive(float fdistanz){
+        float fKilometeranzahlalt = fKilometeranzahl;
+        fKilometeranzahl = fKilometeranzahl + fdistanz;
+        double dresult;
+
+        if(fKilometeranzahl <= 5000){
+
+            dresult = fdistanz * fBasisverbrauch;
+
+        } else if (fKilometeranzahlalt < 5000) {
+
+            float f = 5000 - fKilometeranzahlalt;
+            float f2 = fdistanz - f;
+
+            dresult = (f * fBasisverbrauch) + ((f2 * fBasisverbrauch )+(f2 * fBasisverbrauch * 0.098));
+        } else {
+            dresult = fdistanz * fBasisverbrauch +(fdistanz * fBasisverbrauch * 0.098);
+        }
+        System.out.println("Das Auto ist nun " + fdistanz + "km gefahren, und hat dabei: "+ dresult + " Liter verbraucht");
+
+
+      return 0;
+    };
     public String getStrFarbe() {
         return strFarbe;
     }
@@ -60,4 +94,13 @@ public class Car {
         this.engine = engine;
     }
 
+
+    public Producer getProducer() {
+        return producer;
+    }
+
+    public void setProducer(Producer producer) {
+        this.producer = producer;
+
+    }
 }
