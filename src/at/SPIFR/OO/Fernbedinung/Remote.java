@@ -1,4 +1,4 @@
-package at.SPIFR.Fernbedinung;
+package at.SPIFR.OO.Fernbedinung;
 
 import java.util.ArrayList;
 import java.util.List;

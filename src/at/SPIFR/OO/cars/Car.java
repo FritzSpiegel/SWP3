@@ -1,4 +1,4 @@
-package at.SPIFR.cars;
+package at.SPIFR.OO.cars;
 
 
 public class Car {
@@ -31,7 +31,15 @@ public class Car {
         return fresult;
     };
 
-    public float drive(float fdistanz){
+    public void drive(){
+        System.out.println("I am driving");
+    }
+
+    public void stop(){
+        System.out.println("I am breaking ... car");
+    }
+
+    public float drive1(float fdistanz){
         float fKilometeranzahlalt = fKilometeranzahl;
         fKilometeranzahl = fKilometeranzahl + fdistanz;
         double dresult;

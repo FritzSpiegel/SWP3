@@ -1,6 +1,4 @@
-package at.SPIFR.Lampe;
-
-import at.SPIFR.cars.Car;
+package at.SPIFR.OO.Lampe;
 
 import java.util.ArrayList;
 import java.util.List;

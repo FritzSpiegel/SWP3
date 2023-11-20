@@ -1,6 +1,4 @@
-package at.SPIFR.cars;
-
-import at.SPIFR.Fernbedinung.Battery;
+package at.SPIFR.OO.cars;
 
 import java.util.ArrayList;
 import java.util.List;

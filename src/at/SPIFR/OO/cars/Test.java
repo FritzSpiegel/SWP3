@@ -1,4 +1,4 @@
-package at.SPIFR.cars;
+package at.SPIFR.OO.cars;
 
 public class Test {
 
@@ -16,9 +16,16 @@ public class Test {
 
         System.out.println(car1.calculatefPreis());
 
-        car1.drive(4900);
+        car1.drive1(4900);
 
-        car1.drive(300);
+        car1.drive1(300);
+
+        Truck truck1 = new Truck("green",180,2000,2,engine1,producer1,"trailer1");
+
+        System.out.println(truck1.getStrFarbe() + " " + truck1.getTrailer());
+
+        truck1.drive();
+        truck1.stop();
 
 
 

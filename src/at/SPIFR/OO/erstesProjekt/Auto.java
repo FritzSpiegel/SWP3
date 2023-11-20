@@ -1,4 +1,4 @@
-package at.SPIFR.OOP;
+package at.SPIFR.OO.erstesProjekt;
 
 import java.util.ArrayList;
 

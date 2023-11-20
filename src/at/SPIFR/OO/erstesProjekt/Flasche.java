@@ -1,4 +1,4 @@
-package at.SPIFR.OOP;
+package at.SPIFR.OO.erstesProjekt;
 
 public class Flasche {
     private String sHersteller = "kein Hersteller";

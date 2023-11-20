@@ -1,4 +1,4 @@
-package at.SPIFR.Lampe;
+package at.SPIFR.OO.Lampe;
 
 public class Element {
 
