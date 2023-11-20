@@ -76,7 +76,6 @@ public class keria {
 
                 int zufall2 = (int) (5*Math.random());
 
-                String streetAddress = faker.address().streetAddress(); // 60018 Sawayn Brooks Suite 449
 
                 if(i == 99){
                     myWriter.write(

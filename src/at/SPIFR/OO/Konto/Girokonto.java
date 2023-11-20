@@ -5,12 +5,10 @@ public class Girokonto extends  Konto{
 
     private float fLimit;
 
-
     public Girokonto(float fKontostand, float fLimit) {
         super(fKontostand);
         this.fLimit = fLimit;
     }
-
 
     @Override
     public void auszahlen(float fBetrag) {
