@@ -6,9 +6,8 @@ import com.github.javafaker.Faker;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
-import java.util.Random;
 
-public class T1 {
+public class keria {
 
     public static void main(String[] args) {
 
