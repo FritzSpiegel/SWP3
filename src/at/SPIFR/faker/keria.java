@@ -70,8 +70,7 @@ public class keria {
             FileWriter myWriter = new FileWriter("InsertDataProdukte.txt");
 
             for(int i = 0; i < 100; i ++){
-                String productname = faker.funnyName().name(); // Emory
-
+                String productname = faker.dragonBall().character();
                 int zufall = (int) (5*Math.random())+1;
 
                 int zufall2 = (int) (5*Math.random());
