@@ -16,9 +16,40 @@ public class Phone {
         this.sdcard = sdcard;
     }
 
-    public void takepictures(){
-
+    public void getFreeSpace(){
+        sdcard.getFreeSpace();
     };
+
+
+    public void doCall(String phonenumber){
+        sim.doCall(phonenumber);
+    }
+
+
+    public void printAllFiles(){
+        sdcard.getAllFiles();
+    };
+
+    public void takepictures(String name){
+        sdcard.addBattery(cam.takepicture(name));
+    };
+
+    public void switchcam(Cam cam){
+        System.out.println("Die Cam wurde gewechselt");
+        this.cam = cam;
+    };
+
+    public void switchsim(SIM sim){
+        System.out.println("Die SIM wurde gewechselt");
+        this.sim = sim;
+    };
+
+    public void switchsdCard(SDCard sdcard){
+        System.out.println("Die SDCard wurde gewechselt");
+        this.sdcard = sdcard;
+    };
+
+
 
 
 

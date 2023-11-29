@@ -15,6 +15,17 @@ public class Cam {
     };
 
 
+
+    public PhoneFile takepicture(String name){
+
+        int iSize = resolution *resolution * 3;
+
+        PhoneFile phoneFile = new PhoneFile("png",iSize,name);
+
+        return phoneFile;
+
+    };
+
     public Cam(int resolution) {
         this.resolution = resolution;
     }

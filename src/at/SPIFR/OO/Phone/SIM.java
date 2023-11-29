@@ -9,8 +9,8 @@ public class SIM {
         this.number = number;
     }
 
-    public void doCall(Number number){
-        System.out.println("I am calling... " + number);
+    public void doCall(String phonenumber){
+        System.out.println("I am calling... " + phonenumber);
     }
 
     public int getId() {
