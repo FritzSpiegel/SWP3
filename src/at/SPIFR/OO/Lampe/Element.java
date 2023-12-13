@@ -8,6 +8,8 @@ public class Element {
     private boolean bstate;
 
 
+
+
     public Element(String strName, float fpower, String strColor, boolean bstate) {
         this.strName = strName;
         this.fpower = fpower;

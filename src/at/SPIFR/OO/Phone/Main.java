@@ -35,15 +35,8 @@ public class Main {
         phone1.getFreeSpace();
         phone1.printAllFiles();
 
+
         phone1.doCall("+43 278 1074839");
-
-
-
-
-
-
-
-
 
     }
 }
